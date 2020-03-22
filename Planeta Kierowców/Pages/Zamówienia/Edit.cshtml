@@ -1,0 +1,58 @@
+﻿@page
+@model Planeta_Kierowców.Pages.Zamówienia.EditModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<br />
+<h2 class="text-info">Edytuj istniejące zlecenie</h2>
+<br />
+
+<div class="border-container" style="padding:30px;">
+    <form method="post">
+        <input type="hidden" asp-for="order.Id" />
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="order.Firma"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="order.Firma" class="form-control" />
+            </div>
+            <span asp-validation-for="order.Firma" class="text-danger"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="order.Rodzaj"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="order.Rodzaj" class="form-control" />
+            </div>
+            <span asp-validation-for="order.Rodzaj" class="text-danger"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="order.Kierowca"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="order.Kierowca" class="form-control" />
+            </div>
+            <span asp-validation-for="order.Kierowca" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3 offset-4">
+                <input type="submit" value="Zatwierdź" class="btn btn-primary form-control" />
+            </div>
+            <div class="col-2">
+                <a asp-page="Index" class="btn btn-success form-control">Powrót</a>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

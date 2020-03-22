@@ -1,0 +1,75 @@
+﻿@page
+@model Planeta_Kierowców.Pages.Zamówienia.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<div class="container row p-0 m-0">
+    <div class="col-9">
+        <h2 class="text-info">System zleceń</h2>
+    </div>
+    <div class="col-3">
+        <a asp-page="Create" class="btn btn-info form-control text-white">Utwórz nowe</a>
+    </div>
+
+    <div class="col-12 border p-3 mt-3">
+        <form method="post">
+            @if(Model.orders.Count() > 0)
+            {
+                <table class="table table-striped border">
+                    <tr class="table-secondary">
+
+                        <th>
+                            <label asp-for="orders.FirstOrDefault().Id"></label>
+                        </th>
+
+                        <th>
+                            @*Html.DisplayNameFor(m=>m.orders.FirstOrDefault().Author)*@
+                            <label asp-for="orders.FirstOrDefault().Firma"></label>
+                        </th>
+
+                        <th>
+                            <label asp-for="orders.FirstOrDefault().Rodzaj"></label>
+                        </th>
+
+                        <th>
+                            <label asp-for="orders.FirstOrDefault().Kierowca"></label>
+                        </th>
+
+                        <th></th>
+
+                    </tr>
+                    @foreach(var item in Model.orders)
+                    {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => item.Id)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(m => item.Firma)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(m => item.Rodzaj)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Kierowca)
+                    </td>
+                    <td>
+                        <button asp-page-handler="Delete" asp-route-id="@item.Id" onclick="return confirm('Czy na pewno chcesz usunąć to zlecenie?')" class="btn btn-danger btn-sm">Usuń</button>
+                        <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm text-white">Edytuj</a>
+                    </td>
+                </tr>
+                    }
+                </table>
+            }
+            else
+            {
+                <p>Brak istniejących zleceń w systemie.</p>
+            }
+        </form>
+    </div>
+</div>
+
