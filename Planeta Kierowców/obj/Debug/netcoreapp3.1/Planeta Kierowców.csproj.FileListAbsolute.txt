@@ -406,3 +406,4 @@ C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\net
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Razor\Pages\Zamówienia\Index.cshtml.g.cs
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Razor\Pages\Zamówienia\Create.cshtml.g.cs
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Razor\Pages\Zamówienia\Edit.cshtml.g.cs
+C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Razor\Pages\Zamówienia\Details.cshtml.g.cs

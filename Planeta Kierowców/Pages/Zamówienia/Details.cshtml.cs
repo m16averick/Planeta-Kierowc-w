@@ -8,14 +8,16 @@ using Planeta_Kierowców.Model;
 
 namespace Planeta_Kierowców.Pages.Zamówienia
 {
-    public class EditModel : PageModel
+    public class DetailsModel : PageModel
     {
         private ApplicationDbContext _db;
 
-        public EditModel(ApplicationDbContext db)
+        public DetailsModel(ApplicationDbContext db)
         {
             _db = db;
         }
+
+
 
         [BindProperty]
         public order order { get; set; }
@@ -29,15 +31,14 @@ namespace Planeta_Kierowców.Pages.Zamówienia
             if (ModelState.IsValid)
             {
                 var OrderFromDb = await _db.order.FindAsync(order.Id);
-
-
+                OrderFromDb.Id = order.Id;
                 OrderFromDb.Firma = order.Firma;
                 OrderFromDb.Rodzaj = order.Rodzaj;
                 OrderFromDb.Kierowca = order.Kierowca;
 
                 await _db.SaveChangesAsync();
 
-                return RedirectToPage("Details", new { id = order.Id });
+                return RedirectToPage("Index");
             }
             return RedirectToPage();
         }
