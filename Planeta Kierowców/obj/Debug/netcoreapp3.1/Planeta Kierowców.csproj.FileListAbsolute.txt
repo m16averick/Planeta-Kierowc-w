@@ -134,7 +134,6 @@ C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\bin\Debug\net
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Localization.dll
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Logging.Configuration.dll
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Logging.Console.dll
-C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Logging.Debug.dll
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Logging.EventLog.dll
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Logging.EventSource.dll
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Logging.TraceSource.dll
@@ -407,3 +406,4 @@ C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\net
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Razor\Pages\Zamówienia\Create.cshtml.g.cs
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Razor\Pages\Zamówienia\Edit.cshtml.g.cs
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Razor\Pages\Zamówienia\Details.cshtml.g.cs
+C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Debug.dll
