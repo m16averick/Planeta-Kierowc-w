@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Planeta Kierowców", "Planeta Kierowców\Planeta Kierowców.csproj", "{78A1C92F-DA5C-4283-A14C-92AD9D81D9C6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Planeta Kierowców", "Planeta Kierowców\Planeta Kierowców.csproj", "{126C6480-CB7C-44BC-A2DC-AF3E14BED09D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{78A1C92F-DA5C-4283-A14C-92AD9D81D9C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{78A1C92F-DA5C-4283-A14C-92AD9D81D9C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{78A1C92F-DA5C-4283-A14C-92AD9D81D9C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{78A1C92F-DA5C-4283-A14C-92AD9D81D9C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{126C6480-CB7C-44BC-A2DC-AF3E14BED09D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{126C6480-CB7C-44BC-A2DC-AF3E14BED09D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{126C6480-CB7C-44BC-A2DC-AF3E14BED09D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{126C6480-CB7C-44BC-A2DC-AF3E14BED09D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {E2BFACF1-B15A-4903-9F37-05FA40576CED}
+		SolutionGuid = {BFF57F08-F0E9-4912-9974-9F80C5303E07}
 	EndGlobalSection
 EndGlobal

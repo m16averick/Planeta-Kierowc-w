@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Planeta_Kierowców.Model;
+using Planeta_Kierowców.Data;
+
 
 namespace Planeta_Kierowców.Pages.Zamówienia
 {

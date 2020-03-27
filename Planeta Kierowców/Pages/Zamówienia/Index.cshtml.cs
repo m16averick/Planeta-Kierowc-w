@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Planeta_Kierowców.Model;
+using Planeta_Kierowców.Data;
+
 
 namespace Planeta_Kierowców.Pages.Zamówienia
 {
