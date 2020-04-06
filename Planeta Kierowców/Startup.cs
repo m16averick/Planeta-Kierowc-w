@@ -1,18 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Planeta_Kierowców.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Planeta_Kierowców.Model;
+using System;
+using System.Threading.Tasks;
 
 namespace Planeta_Kierowców
 {
@@ -31,13 +26,26 @@ namespace Planeta_Kierowców
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddRazorPages();
+            services.AddRazorPages();   
+
+
+
+
+
         }
 
+
+
+
+        // In this method we will create default User roles and Admin user for login    
+
+
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider services)
         {
             if (env.IsDevelopment())
             {
@@ -63,6 +71,36 @@ namespace Planeta_Kierowców
             {
                 endpoints.MapRazorPages();
             });
+
+            CreateUserRoles(services).Wait();
+
         }
+
+
+
+
+        private async Task CreateUserRoles(IServiceProvider serviceProvider)
+        {
+            // Initializing custom roles   
+            var RoleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var UserManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+
+            IdentityResult roleResult;
+
+            // Adding Admin Role
+            var roleCheck = await RoleManager.RoleExistsAsync("Admin");
+            if (!roleCheck)
+            {
+                //Create the roles and seed them to the database 
+                roleResult = await RoleManager.CreateAsync(new IdentityRole("Admin"));
+            }
+
+            // Assign Admin role to newly registered user
+            ApplicationUser user = await UserManager.FindByEmailAsync("m16averick@gmail.com");
+            var User = new ApplicationUser();
+            await UserManager.AddToRoleAsync(user, "Admin");
+        }
+
     }
+
 }

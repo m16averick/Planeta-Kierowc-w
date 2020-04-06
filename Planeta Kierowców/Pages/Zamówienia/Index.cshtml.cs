@@ -7,10 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Planeta_Kierowców.Model;
 using Planeta_Kierowców.Data;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace Planeta_Kierowców.Pages.Zamówienia
 {
+    [Authorize(Roles="Admin")]
     public class IndexModel : PageModel
     {
         private readonly ApplicationDbContext _db;
@@ -28,6 +29,7 @@ namespace Planeta_Kierowców.Pages.Zamówienia
 
         public async Task<IActionResult> OnPostDelete(int id)
         {
+
             var order = await _db.order.FindAsync(id);
             if (order==null)
             {

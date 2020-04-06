@@ -53,9 +53,6 @@ C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\bin\Debug\net
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Planeta Kierowców.csprojAssemblyReference.cache
-C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Planeta Kierowców.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Planeta Kierowców.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Planeta Kierowców.RazorAssemblyInfo.cache
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Planeta Kierowców.RazorAssemblyInfo.cs
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Planeta Kierowców.AssemblyInfoInputs.cache
@@ -170,3 +167,13 @@ C:\Users\Majkii\source\repos\Planeta Kierowców ZLECENIA FORMULARZ\Planeta Kiero
 C:\Users\Majkii\source\repos\Planeta Kierowców ZLECENIA FORMULARZ\Planeta Kierowców\obj\Debug\netcoreapp3.1\staticwebassets\Planeta Kierowców.StaticWebAssets.xml
 C:\Users\Majkii\source\repos\Planeta Kierowców ZLECENIA FORMULARZ\Planeta Kierowców\obj\Debug\netcoreapp3.1\Planeta Kierowców.dll
 C:\Users\Majkii\source\repos\Planeta Kierowców ZLECENIA FORMULARZ\Planeta Kierowców\obj\Debug\netcoreapp3.1\Planeta Kierowców.pdb
+C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\bin\Debug\netcoreapp3.1\Google.Apis.dll
+C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\bin\Debug\netcoreapp3.1\Google.Apis.Admin.Directory.directory_v1.dll
+C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\bin\Debug\netcoreapp3.1\Google.Apis.Auth.PlatformServices.dll
+C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\bin\Debug\netcoreapp3.1\Google.Apis.Auth.dll
+C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\bin\Debug\netcoreapp3.1\Google.Apis.Core.dll
+C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\bin\Debug\netcoreapp3.1\openstacknet.dll
+C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\bin\Debug\netcoreapp3.1\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Planeta Kierowców.csprojAssemblyReference.cache
+C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Planeta Kierowców.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Planeta Kierowców.MvcApplicationPartsAssemblyInfo.cache

@@ -9,7 +9,7 @@ using Planeta_Kierowców.Model;
 namespace Planeta_Kierowców.Data
 {
 
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
