@@ -5,6 +5,10 @@ To webowy system zrealizowany na platformie ASP.NET Core, który pozwoli koordyn
 ## DB Server:
 Microsoft Sql Express
 
+## Relacje
+![Schemat relacji](/Images/relacje.png)
+Format: ![Alt Text](url)
+
 ## Typy zleceń:
 do wykonania,
 wykonane
