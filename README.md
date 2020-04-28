@@ -6,8 +6,8 @@ To webowy system zrealizowany na platformie ASP.NET Core, który pozwoli koordyn
 Microsoft Sql Express
 
 ## Relacje
-![Schemat relacji](/Images/relacje.png)
-Format: ![Alt Text](url)
+![Schemat relacji](/Images/relacje.PNG)
+
 
 ## Typy zleceń:
 do wykonania,
