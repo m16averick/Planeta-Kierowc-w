@@ -7,6 +7,7 @@ Microsoft Sql Express
 
 ## Relacje
 ![Schemat relacji](/Images/relacje.PNG)
+![Schemat chena](/Images/relacje_chan.PNG)
 
 
 ## Typy zleceń:
