@@ -6,7 +6,7 @@ To webowy system zrealizowany na platformie ASP.NET Core, który pozwoli koordyn
 Microsoft Sql Express
 
 ## Relacje
-![Schemat relacji](/Images/relacje.PNG)
+
 ![Schemat chena](/Images/relacje_chan.PNG)
 
 
