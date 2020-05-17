@@ -52,7 +52,7 @@ CREATE TABLE Zlecenia (
     Miejsce_zdania varchar(50),
     Czas_zdania DATETIME,
     Kierowca_ID INT,
-    Koordynator_ID INT,
+    Koordynator_ID INT NOT NULL,
     FOREIGN KEY (Kierowca_ID) REFERENCES Users(ID_User),
     FOREIGN KEY (Koordynator_ID) REFERENCES Users(ID_User)
 );
@@ -84,4 +84,4 @@ ON
 	Zlecenia.Koordynator_ID = ID_K
 LEFT JOIN Protokoly
 ON
-	Protokoly.Zlecenie_ID = ID_Zlecenie
+	Protokoly.Zlecenie_ID = ID_Zlecenie;
