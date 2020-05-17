@@ -1,41 +1,44 @@
-drop table if exists Protokoly;
-drop table if exists Zlecenia;
-drop table if exists Przedzial_czasu;
-drop table if exists Users;
-drop table if exists Role;
+IF OBJECT_ID('dbo.Protokoly', 'U') IS NOT NULL 
+DROP TABLE dbo.Protokoly; 
+IF OBJECT_ID('dbo.Zlecenia', 'U') IS NOT NULL 
+DROP TABLE dbo.Zlecenia; 
+IF OBJECT_ID('dbo.Przedzial_czasu', 'U') IS NOT NULL 
+DROP TABLE dbo.Przedzial_czasu;
+IF OBJECT_ID('dbo.Users', 'U') IS NOT NULL 
+DROP TABLE dbo.Users; 
+
+IF OBJECT_ID('dbo.Role', 'U') IS NOT NULL 
+DROP TABLE dbo.Role; 
+
 
 
 CREATE TABLE Role(
-    ID_Rola INT NOT NULL AUTO_INCREMENT,
+    ID_Rola INT IDENTITY PRIMARY KEY,
     Nazwa varchar(50) NOT NULL,
-    PRIMARY KEY (ID_Rola)
 );
 
 INSERT INTO Role (Nazwa) VALUES ('Koordynator');
 INSERT INTO Role (Nazwa) VALUES ('Kierowca');
-INSERT INTO Role (Nazwa) VALUES ('Klient');
 
 
-CREATE TABLE Users (
-    ID_User INT NOT NULL AUTO_INCREMENT,
-    Imie_nazwisko varchar(50),
+
+CREATE TABLE Users(
+    ID_User INT IDENTITY PRIMARY KEY,
+    Imie_nazwisko varchar(50) NOT NULL,
     Numer_tel INT,
-    Rola_ID INT,
-    PRIMARY KEY (ID_User),
+    Rola_ID INT NOT NULL,
     FOREIGN KEY (Rola_ID) REFERENCES Role(ID_Rola)
 );
 
 INSERT INTO Users (Imie_nazwisko, Numer_tel, Rola_ID) VALUES ('Piotr Gruszynski', '500300400', 1);
 INSERT INTO Users (Imie_nazwisko, Numer_tel, Rola_ID) VALUES ('Tomasz Maciwoda', '500300400', 2);
-INSERT INTO Users (Imie_nazwisko, Numer_tel, Rola_ID) VALUES ('Jan Kowalski', '500300400', 3);
 
 
 CREATE TABLE Przedzial_czasu (
-    ID_Przedzial INT unsigned NOT NULL AUTO_INCREMENT,
+    ID_Przedzial INT IDENTITY PRIMARY KEY,
     Kierowca_ID INT NOT NULL,
     OD DATETIME NOT NULL,
     DO DATETIME NOT NULL,
-    PRIMARY KEY (ID_Przedzial),
     FOREIGN KEY (Kierowca_ID) REFERENCES Users(ID_User)
 );
 
@@ -43,14 +46,13 @@ INSERT INTO Przedzial_czasu (Kierowca_ID, OD, DO) VALUES (1, '2020-05-06 20:00',
 
 
 CREATE TABLE Zlecenia (
-    ID_Zlecenie INT NOT NULL AUTO_INCREMENT,
+    ID_Zlecenie INT IDENTITY PRIMARY KEY,
     Miejsce_odbioru varchar(50),
     Czas_odbioru DATETIME,
     Miejsce_zdania varchar(50),
     Czas_zdania DATETIME,
     Kierowca_ID INT,
     Koordynator_ID INT,
-    PRIMARY KEY (ID_Zlecenie),
     FOREIGN KEY (Kierowca_ID) REFERENCES Users(ID_User),
     FOREIGN KEY (Koordynator_ID) REFERENCES Users(ID_User)
 );
@@ -59,13 +61,27 @@ INSERT INTO Zlecenia (Miejsce_odbioru, Czas_odbioru, Miejsce_zdania, Czas_zdania
 
 
 CREATE TABLE Protokoly (
-    ID_Protokol INT unsigned NOT NULL AUTO_INCREMENT,
+    ID_Protokol INT IDENTITY PRIMARY KEY,
     Zlecenie_ID INT NOT NULL,
-    Plik varchar(100),
-    PRIMARY KEY (ID_Protokol),
+    Plik varchar(100) NOT NULL,
     FOREIGN KEY (Zlecenie_ID) REFERENCES Zlecenia(ID_Zlecenie)
 );
 
+INSERT INTO Protokoly (Zlecenie_ID, Plik) VALUES (1,'sciezkadopliku');
 INSERT INTO Protokoly (Zlecenie_ID, Plik) VALUES (1, 'sciezkadopliku');
 
-select ID_Zlecenie, Miejsce_odbioru, Czas_odbioru, Miejsce_zdania, Czas_zdania, Kierowca, Koordynator, Protokol from Zlecenia natural left join (select ID_User as Kierowca_ID, Imie_nazwisko as Kierowca from Users) as foo2 natural left join (select ID_User as Koordynator_ID, Imie_nazwisko as Koordynator from Users) as foo3 natural left join (select ID_Protokol as Protokol_ID, Plik as Protokol from Protokoly) as foo4 ;
+SELECT
+	ID_Zlecenie, Miejsce_odbioru, Czas_odbioru, Miejsce_zdania, Czas_zdania, Kierowca, Koordynator, Plik as Protokół
+FROM 
+	Zlecenia 
+FULL JOIN 
+	(select ID_User, Imie_nazwisko as Kierowca from Users WHERE Rola_ID=1) as foo
+ON
+	Zlecenia.Kierowca_ID = ID_User
+FULL JOIN 
+	(select ID_User as ID_K, Imie_nazwisko as Koordynator from Users WHERE Rola_ID=2) as foo2
+ON
+	Zlecenia.Koordynator_ID = ID_K
+LEFT JOIN Protokoly
+ON
+	Protokoly.Zlecenie_ID = ID_Zlecenie
