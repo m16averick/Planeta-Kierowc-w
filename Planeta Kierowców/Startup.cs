@@ -99,6 +99,19 @@ namespace Planeta_Kierowców
             ApplicationUser user = await UserManager.FindByEmailAsync("m16averick@gmail.com");
             var User = new ApplicationUser();
             await UserManager.AddToRoleAsync(user, "Admin");
+
+            // Adding Admin Role
+            roleCheck = await RoleManager.RoleExistsAsync("Driver");
+            if (!roleCheck)
+            {
+                //Create the roles and seed them to the database 
+                roleResult = await RoleManager.CreateAsync(new IdentityRole("Driver"));
+            }
+
+            // Assign Admin role to newly registered user
+            user = await UserManager.FindByEmailAsync("zenek2021@yandex.ru");
+            User = new ApplicationUser();
+            await UserManager.AddToRoleAsync(user, "Driver");
         }
 
     }

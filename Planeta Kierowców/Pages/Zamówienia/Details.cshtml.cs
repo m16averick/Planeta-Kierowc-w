@@ -37,6 +37,7 @@ namespace Planeta_Kierowców.Pages.Zamówienia
                 OrderFromDb.Firma = order.Firma;
                 OrderFromDb.Rodzaj = order.Rodzaj;
                 OrderFromDb.Kierowca = order.Kierowca;
+                
 
                 await _db.SaveChangesAsync();
 

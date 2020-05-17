@@ -177,3 +177,4 @@ C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\bin\Debug\net
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Planeta Kierowców.csprojAssemblyReference.cache
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Planeta Kierowców.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Planeta Kierowców.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Razor\Pages\Zamówienia\YourIndex.cshtml.g.cs
