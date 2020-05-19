@@ -57,8 +57,7 @@
                         @Html.DisplayFor(m => item.Kierowca)
                     </td>
                     <td>
-                        <button asp-page-handler="Delete" asp-route-id="@item.Id" onclick="return confirm('Czy na pewno chcesz usunąć to zlecenie?')" class="btn btn-danger btn-sm">Usuń</button>
-                        <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm text-white">Edytuj</a>
+                       
                         <a asp-page="Details" asp-route-id="@item.Id" class="btn btn-success btn-sm text-white">Szczegóły</a>
                     </td>
                 </tr>

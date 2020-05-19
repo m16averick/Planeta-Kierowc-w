@@ -6,10 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Planeta_Kierowców.Model;
 using Planeta_Kierowców.Data;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace Planeta_Kierowców.Pages.Zamówienia
 {
+    [Authorize(Roles = "Admin")]
     public class EditModel : PageModel
     {
         private ApplicationDbContext _db;

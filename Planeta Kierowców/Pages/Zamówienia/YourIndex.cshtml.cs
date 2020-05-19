@@ -29,8 +29,8 @@ namespace Planeta_Kierowców.Pages.Zamówienia
         public async Task OnGet(string tekst)
         {
             string currentUserId = User.Identity.GetUserId();
-            orders = await _db.order.ToListAsync();
-            orders = orders.Where(s => s.Kierowca.Contains(currentUserId));
+            orders = await _db.order.Where(s => s.Kierowca.Contains(currentUserId)).ToListAsync();
+
 
 
         }
