@@ -1,4 +1,4 @@
-IF OBJECT_ID('dbo.Protokoly', 'U') IS NOT NULL 
+﻿IF OBJECT_ID('dbo.Protokoly', 'U') IS NOT NULL 
 DROP TABLE dbo.Protokoly; 
 IF OBJECT_ID('dbo.Zlecenia', 'U') IS NOT NULL 
 DROP TABLE dbo.Zlecenia; 
@@ -66,13 +66,14 @@ CREATE TABLE Zlecenia (
     Czas_odbioru DATETIME NOT NULL,
     Miejsce_zdania varchar(50) NOT NULL,
     Czas_zdania DATETIME NOT NULL,
+    Status_zlecenia varchar(255),
     Kierowca_ID INT,
     Koordynator_ID INT NOT NULL,
     FOREIGN KEY (Kierowca_ID) REFERENCES AspNetUsers(Id),
     FOREIGN KEY (Koordynator_ID) REFERENCES AspNetUsers(Id)
 );
 
-INSERT INTO Zlecenia (Miejsce_odbioru, Czas_odbioru, Miejsce_zdania, Czas_zdania, Kierowca_ID, Koordynator_ID) VALUES ('Kamienna 13 Wroclaw', '2020-05-06 20:00', 'Powstancow 30 Warszawa', '2020-05-07 20:00', 1, 3);
+INSERT INTO Zlecenia (Miejsce_odbioru, Czas_odbioru, Miejsce_zdania, Czas_zdania, Status_zlecenia, Kierowca_ID, Koordynator_ID) VALUES ('Kamienna 13 Wroclaw', '2020-05-06 20:00', 'Powstancow 30 Warszawa', '2020-05-07 20:00', 'Wykonane', 1, 3);
 
 
 CREATE TABLE Protokoly (
@@ -86,7 +87,7 @@ INSERT INTO Protokoly (Zlecenie_ID, Plik) VALUES (1,'sciezkadopliku');
 INSERT INTO Protokoly (Zlecenie_ID, Plik) VALUES (1, 'sciezkadopliku');
 
 SELECT
-	ID_Zlecenie, Miejsce_odbioru, Czas_odbioru, Miejsce_zdania, Czas_zdania, Kierowca, Koordynator, Plik as Protokół
+	ID_Zlecenie, Miejsce_odbioru, Czas_odbioru, Miejsce_zdania, Czas_zdania, Kierowca, Koordynator, Plik as Protokół, Status_zlecenia
 FROM 
 	Zlecenia 
 JOIN 
