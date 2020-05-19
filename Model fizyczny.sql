@@ -39,10 +39,12 @@ INSERT INTO AspNetUsers (UserName, PhoneNumber, Email, PasswordHash) VALUES ('Kr
 
 
 CREATE TABLE AspNetUserRoles(
+    Id INT IDENTITY PRIMARY KEY,
     UserID INT NOT NULL,
     RoleID INT NOT NULL,
     FOREIGN KEY (UserID) REFERENCES AspNetUsers(Id),
-    FOREIGN KEY (RoleID) REFERENCES AspNetRoles(Id)
+    FOREIGN KEY (RoleID) REFERENCES AspNetRoles(Id),
+	CONSTRAINT UserRole UNIQUE (UserID,RoleID)
 );
 
 INSERT INTO AspNetUserRoles (UserID, RoleID) VALUES (1,1);
@@ -86,6 +88,7 @@ CREATE TABLE Protokoly (
 INSERT INTO Protokoly (Zlecenie_ID, Plik) VALUES (1,'sciezkadopliku');
 INSERT INTO Protokoly (Zlecenie_ID, Plik) VALUES (1, 'sciezkadopliku');
 
+/*!
 SELECT
 	ID_Zlecenie, Miejsce_odbioru, Czas_odbioru, Miejsce_zdania, Czas_zdania, Kierowca, Koordynator, Plik as Protokół, Status_zlecenia
 FROM 
@@ -101,3 +104,4 @@ ON
 LEFT JOIN Protokoly
 ON
 	Protokoly.Zlecenie_ID = ID_Zlecenie;
+	*/
