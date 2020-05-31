@@ -15,6 +15,6 @@ namespace Planeta_Kierowców.Data
             : base(options)
         {
         }
-        public DbSet<order> order { get; set; }
+        public DbSet<Zlecenia> Zlecenia { get; set; }
     }
 }

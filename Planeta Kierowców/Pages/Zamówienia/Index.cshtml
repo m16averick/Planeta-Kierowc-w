@@ -2,6 +2,7 @@
 @model Planeta_Kierowców.Pages.Zamówienia.IndexModel
 @{
     ViewData["Title"] = "Index";
+    @inject UserManager<ApplicationUser> UserManager;
 }
 
 
@@ -16,54 +17,55 @@
 
     <div class="col-12 border p-3 mt-3">
         <form method="post">
-            @if(Model.orders.Count() > 0)
+            @if (Model.orders.Count() > 0)
             {
                 <table class="table table-striped border">
                     <tr class="table-secondary">
 
                         <th>
-                            <label asp-for="orders.FirstOrDefault().Id"></label>
+                            <label asp-for="orders.FirstOrDefault().ID_Zlecenie"></label>
                         </th>
 
                         <th>
                             @*Html.DisplayNameFor(m=>m.orders.FirstOrDefault().Author)*@
-                            <label asp-for="orders.FirstOrDefault().Firma"></label>
+                            <label asp-for="orders.FirstOrDefault().Miejsce_odbioru"></label>
                         </th>
 
                         <th>
-                            <label asp-for="orders.FirstOrDefault().Rodzaj"></label>
+                            <label asp-for="orders.FirstOrDefault().Miejsce_zdania"></label>
                         </th>
 
                         <th>
-                            <label asp-for="orders.FirstOrDefault().Kierowca"></label>
+                            <label>Kierowca</label>
                         </th>
 
                         <th></th>
 
                     </tr>
-                    @foreach(var item in Model.orders)
+                    @foreach (var item in Model.orders)
                     {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(m => item.Id)
-                    </td>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => item.ID_Zlecenie)
+                            </td>
 
-                    <td>
-                        @Html.DisplayFor(m => item.Firma)
-                    </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Miejsce_odbioru)
+                            </td>
 
-                    <td>
-                        @Html.DisplayFor(m => item.Rodzaj)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => item.Kierowca)
-                    </td>
-                    <td>
-                        <button asp-page-handler="Delete" asp-route-id="@item.Id" onclick="return confirm('Czy na pewno chcesz usunąć to zlecenie?')" class="btn btn-danger btn-sm">Usuń</button>
-                        <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm text-white">Edytuj</a>
-                        <a asp-page="Details" asp-route-id="@item.Id" class="btn btn-success btn-sm text-white">Szczegóły</a>
-                    </td>
-                </tr>
+                            <td>
+                                @Html.DisplayFor(m => item.Miejsce_zdania)
+                            </td>
+                            <td>
+                                @{var DisplayName = UserManager.FindByIdAsync(item.Kierowca_ID).Result;}
+                                @DisplayName
+                            </td>
+                            <td>
+                                <button asp-page-handler="Delete" asp-route-id="@item.ID_Zlecenie" onclick="return confirm('Czy na pewno chcesz usunąć to zlecenie?')" class="btn btn-danger btn-sm">Usuń</button>
+                                <a asp-page="Edit" asp-route-id="@item.ID_Zlecenie" class="btn btn-success btn-sm text-white">Edytuj</a>
+                                <a asp-page="Details" asp-route-id="@item.ID_Zlecenie" class="btn btn-success btn-sm text-white">Szczegóły</a>
+                            </td>
+                        </tr>
                     }
                 </table>
             }

@@ -21,21 +21,21 @@ namespace Planeta_Kierowców.Pages.Zamówienia
             _db = db;
         }
 
-        public IEnumerable<order> orders { get; set; } 
+        public IEnumerable<Zlecenia> orders { get; set; } 
         public async Task OnGet()
         {
-            orders = await _db.order.ToListAsync();
+            orders = await _db.Zlecenia.ToListAsync();
         }
 
         public async Task<IActionResult> OnPostDelete(int id)
         {
 
-            var order = await _db.order.FindAsync(id);
+            var order = await _db.Zlecenia.FindAsync(id);
             if (order==null)
             {
                 return NotFound();
             }
-            _db.order.Remove(order);
+            _db.Zlecenia.Remove(order);
             await _db.SaveChangesAsync();
 
             return RedirectToPage("Index");

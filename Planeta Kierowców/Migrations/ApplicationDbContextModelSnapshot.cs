@@ -222,26 +222,40 @@ namespace Planeta_Kierowców.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("Planeta_Kierowców.Model.order", b =>
+            modelBuilder.Entity("Planeta_Kierowców.Model.Zlecenia", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ID_Zlecenie")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Firma")
+                    b.Property<DateTime>("Czas_odbioru")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Czas_zdania")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Kierowca_ID")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Koordynator_ID")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Kierowca")
+                    b.Property<string>("Miejsce_odbioru")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Rodzaj")
-                        .HasColumnType("int");
+                    b.Property<string>("Miejsce_zdania")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.Property<string>("Status_zlecenia")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("order");
+                    b.HasKey("ID_Zlecenie");
+
+                    b.ToTable("Zlecenia");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

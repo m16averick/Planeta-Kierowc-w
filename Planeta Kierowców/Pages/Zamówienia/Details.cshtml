@@ -2,6 +2,7 @@
 @model Planeta_Kierowców.Pages.Zamówienia.DetailsModel
 @{
     ViewData["Title"] = "Details";
+        @inject UserManager<ApplicationUser> UserManager;
 }
 
 
@@ -11,38 +12,80 @@
 
 <div class="border-container" style="padding:30px;">
     <form method="post">
-        <input type="hidden" asp-for="order.Id" />
+        <input type="hidden" asp-for="zlecenie.ID_Zlecenie" />
         <div class="text-danger" asp-validation-summary="ModelOnly"></div>
         <div class="form-group row">
             <div class="col-4">
-                <label asp-for="order.Firma"></label>
+                <label asp-for="zlecenie.Miejsce_odbioru"></label>
             </div>
             <div class="col-5">
-                @Html.Display("order.Firma")
+                @Html.Display("zlecenie.Miejsce_odbioru")
             </div>
         </div>
- 
+
         <div class="form-group row">
             <div class="col-4">
-                <label asp-for="order.Rodzaj"></label>
+                <label asp-for="zlecenie.Czas_odbioru"></label>
             </div>
             <div class="col-5">
-                @Html.Display("order.Rodzaj")
+                @Html.Display("zlecenie.Czas_odbioru")
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="zlecenie.Miejsce_zdania"></label>
+            </div>
+            <div class="col-5">
+                @Html.Display("zlecenie.Miejsce_zdania")
             </div>
 
         </div>
 
         <div class="form-group row">
             <div class="col-4">
-                <label asp-for="order.Kierowca"></label>
+                <label asp-for="zlecenie.Czas_zdania"></label>
             </div>
             <div class="col-5">
-                @Html.Display("order.Kierowca")
+                @Html.Display("zlecenie.Czas_zdania")
             </div>
         </div>
+
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="zlecenie.Status_zlecenia"></label>
+            </div>
+            <div class="col-5">
+                @Html.Display("zlecenie.Status_zlecenia")
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-4">
+                <label>Kierowca</label>
+            </div>
+            <div class="col-5">
+                @{var DisplayName = UserManager.FindByIdAsync(Model.zlecenie.Kierowca_ID).Result;}
+                @DisplayName
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-4">
+                <label>Koordynator</label>
+            </div>
+            <div class="col-5">
+
+                @{var DisplayName2 = UserManager.FindByIdAsync( Model.zlecenie.Koordynator_ID ).Result;}
+                @DisplayName2
+            </div>
+        </div>
+
+
         <div class="form-group row">
             <div class="col-3 offset-4">
-                <a asp-page="Edit" asp-route-id="@Model.order.Id" class="btn btn-primary text-white">Edytuj</a>
+                <a asp-page="Edit" asp-route-id="@Model.zlecenie.ID_Zlecenie" class="btn btn-primary text-white">Edytuj</a>
             </div>
             <div class="col-2">
                 <a asp-page="Index" class="btn btn-success form-control">Powrót</a>

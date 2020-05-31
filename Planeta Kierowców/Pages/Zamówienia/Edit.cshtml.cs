@@ -21,26 +21,29 @@ namespace Planeta_Kierowców.Pages.Zamówienia
         }
 
         [BindProperty]
-        public order order { get; set; }
+        public Zlecenia Zlecenia { get; set; }
         public async Task OnGet(int id)
         {
-            order = await _db.order.FindAsync(id);
+            Zlecenia = await _db.Zlecenia.FindAsync(id);
         }
 
         public async Task<IActionResult> OnPost()
         {
             if (ModelState.IsValid)
             {
-                var OrderFromDb = await _db.order.FindAsync(order.Id);
-
-
-                OrderFromDb.Firma = order.Firma;
-                OrderFromDb.Rodzaj = order.Rodzaj;
-                OrderFromDb.Kierowca = order.Kierowca;
+                var OrderFromDb = await _db.Zlecenia.FindAsync(Zlecenia.ID_Zlecenie);
+                OrderFromDb.ID_Zlecenie = Zlecenia.ID_Zlecenie;
+                OrderFromDb.Miejsce_odbioru = Zlecenia.Miejsce_odbioru;
+                OrderFromDb.Czas_odbioru = Zlecenia.Czas_odbioru;
+                OrderFromDb.Miejsce_zdania = Zlecenia.Miejsce_zdania;
+                OrderFromDb.Czas_zdania = Zlecenia.Czas_zdania;
+                OrderFromDb.Status_zlecenia = Zlecenia.Status_zlecenia;
+                OrderFromDb.Kierowca_ID = Zlecenia.Kierowca_ID;
+                OrderFromDb.Koordynator_ID = Zlecenia.Koordynator_ID;
 
                 await _db.SaveChangesAsync();
 
-                return RedirectToPage("Details", new { id = order.Id });
+                return RedirectToPage("Details", new { id = Zlecenia.ID_Zlecenie });
             }
             return RedirectToPage();
         }
