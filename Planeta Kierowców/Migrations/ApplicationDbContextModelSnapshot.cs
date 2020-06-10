@@ -222,6 +222,28 @@ namespace Planeta_Kierowców.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("Planeta_Kierowców.Model.Przedzial", b =>
+                {
+                    b.Property<int>("ID_Przedzial")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Do")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Kierowca_ID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Od")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("ID_Przedzial");
+
+                    b.ToTable("Przedzials");
+                });
+
             modelBuilder.Entity("Planeta_Kierowców.Model.Zlecenia", b =>
                 {
                     b.Property<int>("ID_Zlecenie")
