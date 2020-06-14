@@ -18,6 +18,12 @@ namespace Planeta_Kierowców.Model
         public string Kierowca_ID { get; set; }
 
         [Required]
+        [ForeignKey("UserName")]
+        public string UserName { get; set; }
+
+
+
+        [Required]
         public DateTime Od { get; set; }
 
         [Required]

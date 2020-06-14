@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>Kalendarz</title>
 
-    
+
     <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.css' type="text/css" rel="stylesheet" />
 </head>
 <body>
@@ -55,7 +55,7 @@
         $(document).ready(function () {
 
             $('#bootstrapModalFullCalendar').fullCalendar({
-                events: 'https://83.24.211.181:5001/Kalendarz/Kalendarz/?handler=FindAllEvents',
+                events: 'https://83.24.197.251:5001/Kalendarz/Kalendarz/?handler=FindAllEvents',
                 header: {
                     left: '',
                     center: 'prev title next',
@@ -73,5 +73,46 @@
             });
         });
     </script>
+
+
+    <div class="border-container" style="padding:30px;">
+        <form method="post">
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="przedzial.Od"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="przedzial.Od" class="form-control" />
+                </div>
+                <span asp-validation-for="przedzial.Od" class="text-danger"></span>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="przedzial.Do"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="przedzial.Do" class="form-control" />
+                </div>
+                <span asp-validation-for="przedzial.Do" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="form-group row">
+                <div class="col-3 offset-4">
+                    <input type="submit" value="Zarejestruj dostępność" class="btn btn-primary form-control" />
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+
 </body>
 </html>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

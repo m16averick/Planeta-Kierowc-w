@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Planeta_Kierowców.Model;
 using Planeta_Kierowców.Data;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNet.Identity;
 
 namespace Planeta_Kierowców.Pages.Zamówienia
 {
@@ -25,11 +26,13 @@ namespace Planeta_Kierowców.Pages.Zamówienia
         public async Task OnGet(int id)
         {
             Zlecenia = await _db.Zlecenia.FindAsync(id);
+
         }
 
         public async Task<IActionResult> OnPost()
         {
-            if (ModelState.IsValid)
+            Zlecenia.Koordynator_ID = User.Identity.GetUserId();
+            if (true)
             {
                 var OrderFromDb = await _db.Zlecenia.FindAsync(Zlecenia.ID_Zlecenie);
                 OrderFromDb.ID_Zlecenie = Zlecenia.ID_Zlecenie;

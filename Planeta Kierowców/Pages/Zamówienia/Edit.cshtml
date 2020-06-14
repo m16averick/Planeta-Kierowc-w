@@ -2,6 +2,7 @@
 @model Planeta_Kierowców.Pages.Zamówienia.EditModel
 @{
     ViewData["Title"] = "Edit";
+    @inject UserManager<ApplicationUser> UserManager;
 }
 
 <br />
@@ -21,6 +22,18 @@
             </div>
             <span asp-validation-for="Zlecenia.Miejsce_odbioru" class="text-danger"></span>
         </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Zlecenia.Czas_odbioru"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Zlecenia.Czas_odbioru" class="form-control" />
+            </div>
+            <span asp-validation-for="Zlecenia.Czas_odbioru" class="text-danger"></span>
+        </div>
+
+
+
 
         <div class="form-group row">
             <div class="col-4">
@@ -32,6 +45,27 @@
             <span asp-validation-for="Zlecenia.Miejsce_zdania" class="text-danger"></span>
         </div>
 
+
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Zlecenia.Czas_zdania"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Zlecenia.Czas_zdania" class="form-control" />
+            </div>
+            <span asp-validation-for="Zlecenia.Czas_zdania" class="text-danger"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Zlecenia.Status_zlecenia"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Zlecenia.Status_zlecenia" class="form-control" />
+            </div>
+            <span asp-validation-for="Zlecenia.Status_zlecenia" class="text-danger"></span>
+        </div>
+
         <div class="form-group row">
             <div class="col-4">
                 <label asp-for="Zlecenia.Kierowca_ID"></label>
@@ -41,6 +75,12 @@
             </div>
             <span asp-validation-for="Zlecenia.Kierowca_ID" class="text-danger"></span>
         </div>
+
+
+
+
+
+
         <div class="form-group row">
             <div class="col-3 offset-4">
                 <input type="submit" value="Zatwierdź" class="btn btn-primary form-control" />
