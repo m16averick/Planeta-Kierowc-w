@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Planeta_Kierowców.Model;
 using Planeta_Kierowców.Data;
-
+using Microsoft.EntityFrameworkCore;
+using System.Collections;
 
 namespace Planeta_Kierowców.Pages.Zamówienia
 {
@@ -23,31 +24,20 @@ namespace Planeta_Kierowców.Pages.Zamówienia
 
         [BindProperty]
         public Zlecenia zlecenie { get; set; }
+
+
+        public IEnumerable<Protokoly> protokolies { get; set; }
+
         public async Task OnGet(int id)
         {
             zlecenie = await _db.Zlecenia.FindAsync(id);
+            protokolies = await _db.Protokoly.Where(s => s.Zlecenie_ID.Equals(id)).ToListAsync();
+
         }
 
         public async Task<IActionResult> OnPost()
         {
-            if (ModelState.IsValid)
-            {
-                var OrderFromDb = await _db.Zlecenia.FindAsync(zlecenie.ID_Zlecenie);
-                OrderFromDb.ID_Zlecenie = zlecenie.ID_Zlecenie;
-                OrderFromDb.Miejsce_odbioru = zlecenie.Miejsce_odbioru;
-                OrderFromDb.Czas_odbioru = zlecenie.Czas_odbioru;
-                OrderFromDb.Miejsce_zdania = zlecenie.Miejsce_zdania;
-                OrderFromDb.Czas_zdania = zlecenie.Czas_zdania;
-                OrderFromDb.Status_zlecenia = zlecenie.Status_zlecenia;
-                OrderFromDb.Kierowca_ID = zlecenie.Kierowca_ID;
-                OrderFromDb.Koordynator_ID = zlecenie.Koordynator_ID;
 
-                
-
-                await _db.SaveChangesAsync();
-
-                return RedirectToPage("Index");
-            }
             return RedirectToPage();
         }
     }

@@ -62,6 +62,19 @@
 
         <div class="form-group row">
             <div class="col-4">
+                <label>Protokoly</label>
+            </div>
+            <div class="col-5">
+                @foreach (var item in Model.protokolies)
+                {
+                    <a href=@Html.DisplayFor(m => item.filepath)>Protokol</a>
+                    <br>
+                }
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-4">
                 <label>Kierowca</label>
             </div>
             <div class="col-5">
@@ -77,7 +90,7 @@
             </div>
             <div class="col-5">
 
-                @{var DisplayName2 = UserManager.FindByIdAsync( Model.zlecenie.Koordynator_ID ).Result;}
+                @{var DisplayName2 = UserManager.FindByIdAsync(Model.zlecenie.Koordynator_ID).Result;}
                 @DisplayName2
             </div>
         </div>
@@ -85,10 +98,31 @@
 
         <div class="form-group row">
             <div class="col-3 offset-4">
-                <a asp-page="Edit" asp-route-id="@Model.zlecenie.ID_Zlecenie" class="btn btn-primary text-white">Edytuj</a>
+                @if (User.IsInRole("Admin"))
+                {
+
+                    <a asp-page="Edit" asp-route-id="@Model.zlecenie.ID_Zlecenie" class="btn btn-primary text-white">Edytuj</a>
+
+                }
+
+
+                @if (User.IsInRole("Driver"))
+                {
+                    <a asp-page="Change" asp-route-id="@Model.zlecenie.ID_Zlecenie" class="btn btn-primary text-white">Zmień status</a>
+                }
             </div>
             <div class="col-2">
-                <a asp-page="Index" class="btn btn-success form-control">Powrót</a>
+                @{
+                    if (User.IsInRole("Admin"))
+                    {
+                        <a asp-page="Index" class="btn btn-success form-control">Powrót</a>
+                    }
+
+                    else if (User.IsInRole("Driver"))
+                    {
+                        <a asp-page="YourIndex" class="btn btn-success form-control">Powrót</a>
+                    }
+                }
             </div>
         </div>
 

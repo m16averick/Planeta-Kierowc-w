@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Planeta_Kierowców.Data;
 
 namespace Planeta_Kierowców.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200618002625_Protokoly")]
+    partial class Protokoly
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -222,25 +224,6 @@ namespace Planeta_Kierowców.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("Planeta_Kierowców.Model.Protokol", b =>
-                {
-                    b.Property<int>("ID_Protokol")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Zlecenie_ID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("filepath")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID_Protokol");
-
-                    b.ToTable("Protokoly");
-                });
-
             modelBuilder.Entity("Planeta_Kierowców.Model.Przedzial", b =>
                 {
                     b.Property<int>("ID_Przedzial")
@@ -264,7 +247,7 @@ namespace Planeta_Kierowców.Migrations
 
                     b.HasKey("ID_Przedzial");
 
-                    b.ToTable("Przedzials");
+                    b.ToTable("Przedzial");
                 });
 
             modelBuilder.Entity("Planeta_Kierowców.Model.Zlecenia", b =>

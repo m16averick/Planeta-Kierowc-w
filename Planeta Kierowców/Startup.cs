@@ -96,14 +96,14 @@ namespace Planeta_Kierowców
             }
 
             // Assign Admin role to newly registered user
-            ApplicationUser user = await UserManager.FindByEmailAsync("m16averick@gmail.com");
+            ApplicationUser user = await UserManager.FindByEmailAsync("plg@uwr.edu.pl");
             var User = new ApplicationUser();
             await UserManager.AddToRoleAsync(user, "Admin");
-
+            /*
             user = await UserManager.FindByEmailAsync("plg@uwr.edu.pl");
             User = new ApplicationUser();
             await UserManager.AddToRoleAsync(user, "Admin");
-
+            */
             // Adding Admin Role
             roleCheck = await RoleManager.RoleExistsAsync("Driver");
             if (!roleCheck)
@@ -117,7 +117,7 @@ namespace Planeta_Kierowców
             User = new ApplicationUser();
             await UserManager.AddToRoleAsync(user, "Driver");
 
-            user = await UserManager.FindByEmailAsync("plg@uwr.edu.pl");
+            user = await UserManager.FindByEmailAsync("m16averick@gmail.com");
             User = new ApplicationUser();
             await UserManager.AddToRoleAsync(user, "Driver");
         }

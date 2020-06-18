@@ -11,7 +11,7 @@ using Planeta_Kierowców.Model;
 
 namespace Planeta_Kierowców.Pages.Kalendarz
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class KalendarzModel : PageModel
     {
 

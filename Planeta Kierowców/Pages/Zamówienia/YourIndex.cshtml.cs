@@ -37,7 +37,6 @@ namespace Planeta_Kierowców.Pages.Zamówienia
             string currentUserName = User.Identity.GetUserName();
             orders = await _db.Zlecenia.Where(s => s.Kierowca_ID.Contains(currentUserId)).ToListAsync();
 
-
             //sql injection
 
         }

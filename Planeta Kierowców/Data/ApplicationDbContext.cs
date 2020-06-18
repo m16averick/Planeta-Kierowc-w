@@ -18,5 +18,9 @@ namespace Planeta_Kierowców.Data
         public DbSet<Zlecenia> Zlecenia { get; set; }
 
         public DbSet<Przedzial> Przedzials { get; set; }
+
+        public DbSet<Protokoly> Protokoly { get; set; }
+
+
     }
 }

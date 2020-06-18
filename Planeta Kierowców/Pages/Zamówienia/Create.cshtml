@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Create";
     @inject UserManager<ApplicationUser> UserManager;
+
 }
 
 <br />
@@ -57,7 +58,10 @@
                 <label asp-for="zlecenie.Status_zlecenia"></label>
             </div>
             <div class="col-5">
-                <input asp-for="zlecenie.Status_zlecenia" class="form-control" />
+                @{String[] options = { "W realizacji", "Wykonane", "Rozliczone" };}
+                <select asp-for="zlecenie.Status_zlecenia" asp-items="@(new SelectList(options))">
+                    <option>Zlecone</option>
+                </select>
             </div>
             <span asp-validation-for="zlecenie.Status_zlecenia" class="text-danger"></span>
         </div>
@@ -67,8 +71,8 @@
                 <label asp-for="zlecenie.Kierowca_ID"></label>
             </div>
             <div class="col-5">
-                
-                <select asp-for="zlecenie.Kierowca_ID" asp-items="@(new SelectList(UserManager.Users,"Id","UserName"))">
+
+                <select asp-for="zlecenie.Kierowca_ID" asp-items="@(new SelectList(UserManager.GetUsersInRoleAsync("Driver").Result,"Id","UserName"))">
                     <option>Wybierz kierowcę</option>
                 </select>
             </div>

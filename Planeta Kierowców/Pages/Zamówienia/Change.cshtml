@@ -1,5 +1,5 @@
 ﻿@page
-@model Planeta_Kierowców.Pages.Zamówienia.EditModel
+@model Planeta_Kierowców.Pages.Zamówienia.ChangeModel
 @{
     ViewData["Title"] = "Edit";
     @inject UserManager<ApplicationUser> UserManager;
@@ -10,7 +10,7 @@
 <br />
 
 <div class="border-container" style="padding:30px;">
-    <form method="post">
+    <form method="post" asp-action="ImageUpload" enctype="multipart/form-data">
         <input type="hidden" asp-for="Zlecenia.ID_Zlecenie" />
         <div class="text-danger" asp-validation-summary="ModelOnly"></div>
         <div class="form-group row">
@@ -18,18 +18,17 @@
                 <label asp-for="Zlecenia.Miejsce_odbioru"></label>
             </div>
             <div class="col-5">
-                <input asp-for="Zlecenia.Miejsce_odbioru" class="form-control" />
+                @Html.Display("Zlecenia.Miejsce_odbioru")
             </div>
-            <span asp-validation-for="Zlecenia.Miejsce_odbioru" class="text-danger"></span>
+
         </div>
         <div class="form-group row">
             <div class="col-4">
                 <label asp-for="Zlecenia.Czas_odbioru"></label>
             </div>
             <div class="col-5">
-                <input asp-for="Zlecenia.Czas_odbioru" class="form-control" />
+                @Html.Display("Zlecenia.Czas_odbioru")
             </div>
-            <span asp-validation-for="Zlecenia.Czas_odbioru" class="text-danger"></span>
         </div>
 
 
@@ -40,9 +39,8 @@
                 <label asp-for="Zlecenia.Miejsce_zdania"></label>
             </div>
             <div class="col-5">
-                <input asp-for="Zlecenia.Miejsce_zdania" class="form-control" />
+                @Html.Display("Zlecenia.Miejsce_zdania")
             </div>
-            <span asp-validation-for="Zlecenia.Miejsce_zdania" class="text-danger"></span>
         </div>
 
 
@@ -51,7 +49,7 @@
                 <label asp-for="Zlecenia.Czas_zdania"></label>
             </div>
             <div class="col-5">
-                <input asp-for="Zlecenia.Czas_zdania" class="form-control" />
+                @Html.Display("Zlecenia.Czas_zdania")
             </div>
             <span asp-validation-for="Zlecenia.Czas_zdania" class="text-danger"></span>
         </div>
@@ -64,9 +62,33 @@
                 @{String[] options = { "W realizacji", "Wykonane", "Rozliczone" };}
                 <select asp-for="Zlecenia.Status_zlecenia" asp-items="@(new SelectList(options))">
                     <option>Zlecone</option>
-                    </select>
+                </select>
             </div>
             <span asp-validation-for="Zlecenia.Status_zlecenia" class="text-danger"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-4">
+                <label>Protokoły</label>
+            </div>
+            <div class="col-5">
+
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Protokół</label>
+                        <div class="col-sm-10">
+                            <div class="custom-file">
+                                <input class="form-control custom-file-input" type="file" name="file" />
+                                <label class="custom-file-label">Browse...</label>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+            </div>
+
         </div>
 
         <div class="form-group row">
@@ -74,11 +96,10 @@
                 <label asp-for="Zlecenia.Kierowca_ID"></label>
             </div>
             <div class="col-5">
-                <select asp-for="Zlecenia.Kierowca_ID" asp-items="@(new SelectList(UserManager.GetUsersInRoleAsync("Driver").Result,"Id","UserName"))">
-                    <option>Wybierz kierowcę</option>
-                </select>
+                @Html.Display("Zlecenia.Kierowca_ID")
+
             </div>
-            <span asp-validation-for="Zlecenia.Kierowca_ID" class="text-danger"></span>
+
         </div>
 
 
@@ -91,12 +112,21 @@
                 <input type="submit" value="Zatwierdź" class="btn btn-primary form-control" />
             </div>
             <div class="col-2">
-                <a asp-page="Index" class="btn btn-success form-control">Powrót</a>
+                <a asp-page="YourIndex" class="btn btn-success form-control">Powrót</a>
             </div>
         </div>
 
     </form>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).next(".custom-file-label").html(fileName);
+        })
+    });
+</script>
 
 @section Scripts{
     <partial name="_ValidationScriptsPartial" />

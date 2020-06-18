@@ -251,3 +251,4 @@ C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\bin\Debug\net
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Planeta Kierowców.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Planeta Kierowców.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Razor\Pages\Kalendarz\Kalendarz.cshtml.g.cs
+C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Razor\Pages\Zamówienia\Change.cshtml.g.cs
