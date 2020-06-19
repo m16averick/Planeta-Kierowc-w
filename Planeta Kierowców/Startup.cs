@@ -119,7 +119,22 @@ namespace Planeta_Kierowców
 
             user = await UserManager.FindByEmailAsync("m16averick@gmail.com");
             User = new ApplicationUser();
+            await UserManager.AddToRoleAsync(user, "Admin");
+
+            user = await UserManager.FindByEmailAsync("m16averick@gmail.com");
+            User = new ApplicationUser();
             await UserManager.AddToRoleAsync(user, "Driver");
+
+            user = await UserManager.FindByEmailAsync("p@p.p");
+            User = new ApplicationUser();
+            await UserManager.AddToRoleAsync(user, "Driver");
+
+            user = await UserManager.FindByEmailAsync("q@q.q");
+            User = new ApplicationUser();
+            await UserManager.AddToRoleAsync(user, "Admin");
+
+
+
         }
 
     }

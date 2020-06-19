@@ -20,7 +20,7 @@ namespace Planeta_Kierowców.Pages.Zamówienia
         {
             _db = db;
         }
-
+        
         [BindProperty]
         public Zlecenia Zlecenia { get; set; }
         public async Task OnGet(int id)
@@ -29,11 +29,11 @@ namespace Planeta_Kierowców.Pages.Zamówienia
 
         }
 
+
         public async Task<IActionResult> OnPost()
         {
             Zlecenia.Koordynator_ID = User.Identity.GetUserId();
-            if (true)
-            {
+
                 var OrderFromDb = await _db.Zlecenia.FindAsync(Zlecenia.ID_Zlecenie);
                 OrderFromDb.ID_Zlecenie = Zlecenia.ID_Zlecenie;
                 OrderFromDb.Miejsce_odbioru = Zlecenia.Miejsce_odbioru;
@@ -47,8 +47,7 @@ namespace Planeta_Kierowców.Pages.Zamówienia
                 await _db.SaveChangesAsync();
 
                 return RedirectToPage("Details", new { id = Zlecenia.ID_Zlecenie });
-            }
-            return RedirectToPage();
+
         }
     }
 }

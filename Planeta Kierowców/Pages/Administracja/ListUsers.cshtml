@@ -1,0 +1,46 @@
+﻿@page
+@model Planeta_Kierowców.Pages.Administracja.ListUsersModel
+@{
+    ViewData["Title"] = "ListUsers";
+    @inject UserManager<ApplicationUser> UserManager;
+
+}
+@{ var users = UserManager.Users; }
+<h1>Lista użytkowników</h1>
+@if (users.Any())
+{
+
+
+    foreach (var user in users)
+    {
+        <div class="card mb-3">
+            <div class="card-header">
+                User Id : @user.Id
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">@user.UserName</h5>
+
+            </div>
+            <div class="card-footer">
+                <a asp-page="EditUser" asp-route-id="@user.Id" class="btn btn-success text-white" class="btn btn-danger">Edytuj</a>                     
+                <a href="#" class="btn btn-danger">Usuń</a>
+
+
+                <a asp-page="EditRoles" asp-route-userId="@user.Id"
+                   class="btn btn-primary">
+                    Zarządzaj rolami
+                </a>
+
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="card">
+        <div class="card-header">
+            Nie ma żadnego usera w bazie
+        </div>
+
+    </div>
+}

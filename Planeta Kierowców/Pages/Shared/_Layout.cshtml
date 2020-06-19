@@ -36,12 +36,30 @@
                         }
 
                         @if (User.Identity.IsAuthenticated)
-                        { 
+                        {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Kalendarz/Kalendarz">Kalendarz</a>
                             </li>
-                         }
-                        </ul>
+                        }
+
+                        @inject SignInManager<ApplicationUser> signInManager;
+
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Zarządzaj
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item"  asp-area=""
+                                       asp-page="/Administracja/ListUsers">Użytkownicy</a>
+                                    <a class="dropdown-item" asp-area=""
+                                       asp-page="/Administracja/EditRoles">Role</a>
+                                </div>
+                            </li>
+                        }
+                    </ul>
                 </div>
             </div>
         </nav>
