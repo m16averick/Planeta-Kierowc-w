@@ -1,0 +1,45 @@
+﻿@page
+@model Planeta_Kierowców.Pages.Administracja.CreateRole
+@{
+    ViewData["Title"] = "EditUser";
+}
+
+
+
+<h1>Utwórz rolę</h1>
+
+<form method="post" class="mt-3">
+
+    <div class="form-group row">
+        <h4 class="text-black-50">
+            <label  class="col-sm-2 col-form-label ">Nazwa:</label>
+            </h4>
+            <div class="col-sm-10">
+                <input asp-for="NowaRola.RoleName" class="form-control">
+                <span asp-validation-for="NowaRola.RoleName" class="text-danger"></span>
+            </div>
+</div>
+  
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+
+
+
+    <div class="card">
+        <div class="card-header">
+            Tworzysz nową Rolę o wybranej nazwie, chyba że taka już jest w bazie
+        </div>
+
+        <div class="card-footer">
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Utwórz</button>
+                    <a asp-page="EditRoles" class="btn btn-danger">Odrzuć</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</form>

@@ -8,7 +8,7 @@
 
 <h1>Lista ról</h1>
 
-    <a asp-page="Create" class="btn btn-info form-control text-white">Utwórz nową rolę</a>
+    <a asp-page="CreateRole" class="btn btn-info form-control text-white">Utwórz nową rolę</a>
 
 @if (roles.Any())
 {
@@ -25,9 +25,9 @@
 
             </div>
             <div class="card-footer">
-                <a href="#" class="btn btn-danger">Edytuj</a>
-                <a href="#" class="btn btn-danger">Usuń</a>
-
+                <form asp-action="DeleteRole" asp-route-id="@role.Id" method="post">
+                    <button type="submit" onclick="return confirm('Czy na pewno chcesz się pozbyć roli @role.Name z systemu?')" class="btn btn-danger">Usuń</button>
+                    </form>
 
 
 

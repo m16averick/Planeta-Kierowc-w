@@ -257,3 +257,4 @@ C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\net
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\bin\Debug\netcoreapp3.1\FluentAssertions.dll
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Planeta Kierowców.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Planeta Kierowców.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Razor\Pages\Administracja\CreateRole.cshtml.g.cs

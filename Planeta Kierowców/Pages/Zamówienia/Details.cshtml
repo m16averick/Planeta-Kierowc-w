@@ -65,10 +65,17 @@
                 <label>Protokoly</label>
             </div>
             <div class="col-5">
-                @foreach (var item in Model.protokolies)
+                @if (Model.protokolies.Any())
                 {
-                    <a href=@Html.DisplayFor(m => item.filepath)>Protokol</a>
-                    <br>
+                    int i = 0;
+                    @foreach (var item in Model.protokolies)
+                    {
+                        <a href=@Html.DisplayFor(m => item.filepath)>Protokół @i</a>
+                        <button asp-page-handler="Delete" asp-route-id="@item.ID_Protokol" onclick="return confirm('Czy na pewno chcesz usunąć ten protokół?')" class="btn-outline-danger">Usuń</button>
+
+                        <br>
+                        i += 1;
+                    }
                 }
             </div>
         </div>

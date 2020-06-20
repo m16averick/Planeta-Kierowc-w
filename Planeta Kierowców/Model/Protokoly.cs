@@ -20,6 +20,9 @@ namespace Planeta_Kierowców.Model
         [Required]
         public string filepath { get; set; }
 
-
+        internal void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

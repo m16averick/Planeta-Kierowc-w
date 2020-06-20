@@ -13,14 +13,15 @@ namespace Planeta_Kierowców.Pages.Administracja
     public class EditRolesModel : PageModel
     {
 
-       
+        private readonly RoleManager<IdentityRole> roleManager;
 
 
         private ApplicationDbContext _db;
 
-        public EditRolesModel(ApplicationDbContext db)
+        public EditRolesModel(ApplicationDbContext db, RoleManager<IdentityRole> roleManager)
         {
             _db = db;
+            this.roleManager = roleManager;
         }
 
         public Model.UserRolesViewModel URVM { get; set; }
@@ -30,6 +31,15 @@ namespace Planeta_Kierowców.Pages.Administracja
 
         }
 
+        public async Task<IActionResult> OnPost(string id)
+        {
 
+            IdentityRole role = await roleManager.FindByIdAsync(id);
+            await roleManager.DeleteAsync(role);
+
+
+            return RedirectToPage("EditRoles");
+
+        }
     }
 }
