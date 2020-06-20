@@ -1,43 +1,43 @@
 ﻿@page
 @model Planeta_Kierowców.Pages.Administracja.EditUserRolesModel
 @{
-    ViewData["Title"] = "EditRoles";
-    @inject RoleManager<IdentityRole> RoleManager;
+    ViewData["Title"] = "EditUser";
 }
-@{ var roles = RoleManager.Roles; }
-
-<h1>Lista ról</h1>
-@if (roles.Any())
-{
-
-
-    foreach (var role in roles)
-    {
-        <div class="card mb-3">
-            <div class="card-header">
-                Id Roli: @role.Id
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">@role.Name</h5>
-
-            </div>
-            <div class="card-footer">
-                <a href="#" class="btn btn-danger">Edytuj</a>
-                <a href="#" class="btn btn-danger">Usuń</a>
 
 
 
+<h1>Edytuj użytkownika</h1>
 
-            </div>
+<form method="post" class="mt-3">
+    <div class="form-group row">
+        <label asp-for="ApUser.Id" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="ApUser.Id" disabled class="form-control">
         </div>
-    }
-}
-else
-{
-    <div class="card">
-        <div class="card-header">
-            Brak ról do pokazania
-        </div>
-
     </div>
-}
+    <div class="form-group row">
+        <label asp-for="ApUser.Email" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="ApUser.Email" class="form-control">
+            <span asp-validation-for="ApUser.Email" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="ApUser.UserName" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="ApUser.UserName" class="form-control">
+            <span asp-validation-for="ApUser.UserName" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Zapisz</button>
+            <a asp-page="ListUsers" class="btn btn-danger">Odrzuć</a>
+        </div>
+    </div>
+
+
+</form>

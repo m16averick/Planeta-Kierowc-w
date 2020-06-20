@@ -12,7 +12,9 @@ namespace Planeta_Kierowców.Model
         public EditUserViewModel()
         {
 
-            //Roles = new List<string>();
+            //var Claims = new List<string>();
+            var AllRoles = new List<string>();
+            var RoleArray = new List<Boolean>();
         }
 
         public string Id { get; set; }
@@ -27,7 +29,10 @@ namespace Planeta_Kierowców.Model
        //public string City { get; set; }
 
 
-        //public IList<string> Roles { get; set; }
+        public IList<string> AllRoles { get; set; }
+
+        public bool[] RoleArrayModel { get; set; }
+
 
 
     }

@@ -7,6 +7,9 @@
 @{ var roles = RoleManager.Roles; }
 
 <h1>Lista ról</h1>
+
+    <a asp-page="Create" class="btn btn-info form-control text-white">Utwórz nową rolę</a>
+
 @if (roles.Any())
 {
 

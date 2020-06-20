@@ -96,7 +96,7 @@ namespace Planeta_Kierowców
             }
 
             // Assign Admin role to newly registered user
-            ApplicationUser user = await UserManager.FindByEmailAsync("plg@uwr.edu.pl");
+            ApplicationUser user = await UserManager.FindByEmailAsync("m16averick@gmail.com");
             var User = new ApplicationUser();
             await UserManager.AddToRoleAsync(user, "Admin");
             /*
@@ -112,26 +112,7 @@ namespace Planeta_Kierowców
                 roleResult = await RoleManager.CreateAsync(new IdentityRole("Driver"));
             }
 
-            // Assign Admin role to newly registered user
-            user = await UserManager.FindByEmailAsync("zenek2021@yandex.ru");
-            User = new ApplicationUser();
             await UserManager.AddToRoleAsync(user, "Driver");
-
-            user = await UserManager.FindByEmailAsync("m16averick@gmail.com");
-            User = new ApplicationUser();
-            await UserManager.AddToRoleAsync(user, "Admin");
-
-            user = await UserManager.FindByEmailAsync("m16averick@gmail.com");
-            User = new ApplicationUser();
-            await UserManager.AddToRoleAsync(user, "Driver");
-
-            user = await UserManager.FindByEmailAsync("p@p.p");
-            User = new ApplicationUser();
-            await UserManager.AddToRoleAsync(user, "Driver");
-
-            user = await UserManager.FindByEmailAsync("q@q.q");
-            User = new ApplicationUser();
-            await UserManager.AddToRoleAsync(user, "Admin");
 
 
 

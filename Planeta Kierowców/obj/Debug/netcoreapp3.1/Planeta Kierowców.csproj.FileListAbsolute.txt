@@ -251,8 +251,9 @@ C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\bin\Debug\net
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Razor\Pages\Kalendarz\Kalendarz.cshtml.g.cs
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Razor\Pages\Zamówienia\Change.cshtml.g.cs
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Razor\Pages\Administracja\ListUsers.cshtml.g.cs
-C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Planeta Kierowców.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Planeta Kierowców.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Razor\Pages\Administracja\EditRoles.cshtml.g.cs
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Razor\Pages\Administracja\EditUserRoles.cshtml.g.cs
 C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Razor\Pages\Administracja\EditUser.cshtml.g.cs
+C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\bin\Debug\netcoreapp3.1\FluentAssertions.dll
+C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Planeta Kierowców.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Majkii\source\repos\Planeta Kierowców\Planeta Kierowców\obj\Debug\netcoreapp3.1\Planeta Kierowców.MvcApplicationPartsAssemblyInfo.cache
